@@ -1,64 +1,42 @@
 import { promises as fs } from 'fs'
 
 
-export class ContenedorJSON {
-    constructor(ruta){
-        this.ruta= ruta
+export class ContenedorArchivo{
+    constructor(){
+        this.ruta= []
     }
 
-    async getAll(){
-        try {
-         const objs=  await fs.readFile(this.ruta, `utf-8`);
+     getAll(){ return [ ...this.ruta ]}
 
-           return JSON.parse(objs)
-        } catch (error) {
-            console.log(error)
-        }
+    save(elem) {
+    
+    let newId
+    if (this.ruta.length == 0) {
+        newId = 1
+    } else {
+        newId = this.ruta[ this.ruta.length - 1 ].id + 1
     }
 
-   async save(obj) {
-    try {
-        const objs = await this.getAll();
+    const newElem = { ...elem, id: newId }
+    this.ruta.push(newElem)
+    return newElem
+}
 
-        let nuevoId;
-    if (objs.length == 0) {
-        nuevoId = 1    
-    }else{
-         nuevoId= objs[objs.length -1].id + 1
-    }
-
-    const nuevoObj = { id: nuevoId, ...obj}
-    objs.push(nuevoObj);
-
-   await fs.writeFile(this.ruta, JSON.stringify(objs, null, 2));
-
-        return nuevoId;
-    } catch (error) {
-        console.log("error", error)
-        
-    }
-   }
-   async actualizar(id, newObj){
-    try {
-        const objs = await this.listarAll();
-        const indexObj = objs.findIndex((o)=> o.id == id);
-
-        if (indexObj == -1) {
-            return 'Objeto no encontrado'
-        } else {
-            objs[indexObj] = {id, ...newObj};
-            await fs.writeFile(this.ruta, JSON.stringify(objs, null, 2));
-        }
-        return {id, ...newObj};
-    } catch (error) {
-        console.log('error al actualziar')
+actualizar(obj) {
+    const index = this.ruta.findIndex(objs => objs.id == obj.id)
+    if (index == -1) {
+        throw new Error(`Error al actualizar: elemento no encontrado`)
+    } else {
+        this.ruta[ index ] = obj
+        return obj
     }
 }
 
-     
-   async getById(id){
+  
+
+    getById(id){
         try {
-            const objs = await this.getAll();
+            const objs = this.ruta;
             const indexObjs = objs.find((o)=> o.id== id)
 
             return indexObjs
@@ -68,32 +46,19 @@ export class ContenedorJSON {
         }
     }
 
-   async deleteByid(id){
-      try {
-        const objs = await this.getAll();
-        const indexObj= objs.findIndex((o)=>o.id == id);
-        
-        if (indexObj == -1) {
-            return "no se encuentra ese elemento"            
+    deleteByid(id){
+        const index = this.ruta.findIndex(elem => elem.id == id)
+        if (index == -1) {
+            throw new Error(`Error al borrar: elemento no encontrado`)
         } else {
-            objs.splice(indexObj, 1 );
-            await fs.writeFile(this.ruta, JSON.stringify(objs, null,2));
+            return this.ruta.splice(index, 1)[ 0 ]
         }
-      } catch (error) {
-        console.log(error)
-      }
     }
-async deleteAll(){
-  try {
-    const objs = await this.getAll();
-    objs.length=0
-    await fs.writeFile(this.ruta, JSON.stringify(objs, null,2));
-  } catch (error) {
-    console.log(error)
-  }
-}
+    
+deleteAll(){
+ this.ruta= []
 
 }
+}
 
-
-export default ContenedorJSON;
+export default ContenedorArchivo ;
