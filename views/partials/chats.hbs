@@ -1,0 +1,47 @@
+
+<div class="container my-5">
+    <div class="jumbotron">
+   
+    <h2>chat</h2>
+    <form id="form" action="" >
+        <div class="form-group ">
+           <label for="user">email</label>
+           <input onKeyUp="" type="text" class="form-control p-2 bg-light border" placeholder="ingrese su email" id="email">
+        </div>
+        <div class="form-group">
+           <label for="user">nombre</label>
+           <input onKeyUp="" type="text" class="form-control p-2 bg-light border" placeholder="ingrese su nombre" id="nombre">
+        </div>
+        <div class="form-group">
+           <label for="user">apellido</label>
+           <input onKeyUp="" type="text" class="form-control p-2 bg-light border" placeholder="ingrese su apellido" id="apellido">
+        </div>
+        <div class="form-group">
+           <label for="user">edad</label>
+           <input onKeyUp="" type="text" class="form-control p-2 bg-light border" placeholder="ingrese su edad" id="edad">
+        </div>
+        <div class="form-group">
+           <label for="user">alias</label>
+           <input onKeyUp="" type="text" class="form-control p-2 bg-light border" placeholder="ingrese su alias" id="alias">
+        </div>
+        <div class="form-group">
+           <label for="user">imagen</label>
+           <input onKeyUp="" type="text" class="form-control p-2 bg-light border" placeholder="ingrese su imagen" id="imagen">
+        </div>
+    <div class="form-group">
+            <label for="contenidoMensaje">MENSAJE</label>
+           <textarea class="form-control p-2 bg-light border" id="contenidoMensaje" placeholder="ingrese su mensaje"  rows="3"></textarea>
+        </div>
+     
+        <button class="btn btn-primary" id="envioDemensaje" onclick="">enviar</button>
+        
+      
+    </form>
+    <hr>
+    <div id="chathistorial">
+    </div>
+</div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/javasocket.js"></script>

@@ -1,0 +1,17 @@
+<div>
+     <div class="jumbotron">
+
+            {{#if productos}} 
+{{#each productos}} 
+<div class="card" style="width: 18rem;">
+  <img src="{{imagen}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{nombre}}</h5>
+    <p class="card-text">{{precio}}</p>
+    <button class="btn btn-danger my-5  " onclick="location.href='/carrito/agregar'">agregar al carrito</button>
+  </div>
+</div>
+ {{/each}}
+{{/if}}  
+</div>
+</div>

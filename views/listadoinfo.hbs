@@ -1,0 +1,19 @@
+<div class="container my-5">
+    <div class="jumbotron">
+            <h1> info de sistema</h1>
+
+ 
+<ul class="list-group list-group-flush">
+  {{#with datos}}
+  <li class="list-group-item">ruta :{{ruta}}</li>
+  <li class="list-group-item">proceso id : {{idProcess}}</li>
+  <li class="list-group-item">Versiones : {{versionNode}}</li>
+  <li class="list-group-item">nombre del proceso: {{nombreProcess}}</li>
+  <li class="list-group-item">sistema operativo : {{sistemaOperativo}}</li>
+  <li class="list-group-item">Nummero de pid : {{procesoNum}}</li>
+   {{/with}}
+</ul>
+  
+
+    </div>
+</div>

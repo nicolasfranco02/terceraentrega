@@ -1,0 +1,31 @@
+<div class="container my-5">
+    <div class="jumbotron">
+
+        <h1 style="color:blue;">login</h1>
+        <br>
+        <form id="formprod" action="/login" method="post">
+            <div class="form-group">
+                <label for="email"><b>email</b></label>
+                <input id="username" name= "username" class="form-control" type="text" placeholder="email">
+            </div>
+            <div id="datosform" class="form-group">
+                <label for="password"><b>contraseña</b></label>
+                <input id="password" class="form-control" type="password" name="password" placeholder="contrana">
+            </div>
+
+            <div class="form-group">
+                <input class="btn btn-success my-3" type="submit" value="Login">
+            </div>
+
+
+
+          <!--  <button class="btn btn-success mt-3 mb-5" onclick="location.href='/api/productos-test'" type="submit"
+                id="ingresar">ingresar</button>-->
+        </form>
+
+        <div class="text-left">
+            <button class="btn btn-success my-3" onclick="location.href = '/register'">Ir a Register</button>
+        </div>
+
+    </div>
+</div>

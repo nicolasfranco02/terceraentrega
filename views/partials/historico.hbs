@@ -1,0 +1,27 @@
+<div>
+     <div class="jumbotron">
+    
+        
+
+    
+        {{#if productos}}        
+            <div class="table-responsive">
+                <table class="table table-dark">
+                    <tr style="color: yellow;"> <th>Nombre</th> <th>precio</th> <th> imagen</th> </tr>
+                    {{#each productos}} 
+                    <tr id="productossocket">
+                        <td>{{nombre}}</td>
+                        <td>{{precio}}</td>
+                        <td><img width="30px" src="{{imagen}}" alt=""></td>
+                    </tr>
+                    {{/each}}
+ 
+                </table>
+            </div> <button class="btn btn-success mt-3 mb-5" onclick="" >Enviar</button>
+            {{else}}
+           
+             
+        {{/if}}    
+ </div>
+ </div>
+ </div>
