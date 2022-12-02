@@ -1,5 +1,4 @@
 import { Router } from 'express';
-import { ProductosDAo } from '../../src/daos/productos/productosDaos.js';
 import ContenedorArchivo from '../container/Contenedor.js';
 
 const routerProd = Router();
