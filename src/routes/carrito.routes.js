@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import ContenedorArchivo from "../container/Contenedor.js";
+import ContenedorArchivo from "../container/contenedor.js";
 
 
 const routercarrito = Router();
