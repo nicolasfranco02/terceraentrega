@@ -20,7 +20,7 @@ import {Strategy} from "passport-local";
 import minimist from 'minimist';
 import {createTransport} from 'nodemailer';
 import envioEmail from './enviodemail.js';
-import ContenedorArchivo from './src/container/Contenedor.js';
+import ContenedorArchivo from './src/container/contenedor.js';
 import twilio from 'twilio';
 import mongoose from 'mongoose';
 
@@ -245,7 +245,7 @@ app.post('/register',async (req, res )=>{
 
 
   const nuevoUsuario = UsuarioBD.find(usuario => usuario.nombre == nombre);
-  console.log(nuevoUsuario)
+ // console.log(nuevoUsuario)
   if (nuevoUsuario){
     res.redirect('/register-error')
   }else {
